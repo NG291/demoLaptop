@@ -15,13 +15,15 @@ public class Product {
 
     private String name;
     private double price;
-    private String image;
     private String detailDesc;
     private String shortDesc;
     private long quantity;
-    private long sold;
     private String factory;
     private String target;
+    private String image;
+
+    public Product() {
+    }
 
     public Long getId() {
         return id;
@@ -45,10 +47,6 @@ public class Product {
 
     public long getQuantity() {
         return quantity;
-    }
-
-    public long getSold() {
-        return sold;
     }
 
     public String getFactory() {
@@ -89,10 +87,6 @@ public class Product {
 
     public void setQuantity(long quantity) {
         this.quantity = quantity;
-    }
-
-    public void setSold(long sold) {
-        this.sold = sold;
     }
 
     public void setFactory(String factory) {

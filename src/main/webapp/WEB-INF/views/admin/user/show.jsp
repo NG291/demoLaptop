@@ -42,7 +42,7 @@
                                                     <!-- <th>Password</th> -->
                                                     <!-- <th>Phone Number</th> -->
                                                     <th>Full Name</th>
-                                                    <!-- <th>Address</th> -->
+                                                    <th>ROLE</th>
                                                     <th>Action</th>
                                                 </tr>
                                             </thead>
@@ -54,7 +54,7 @@
                                                         <!-- <td> ${user.password}</td> -->
                                                         <!-- <td> ${user.phoneNumber}</td> -->
                                                         <td> ${user.fullName}</td>
-                                                        <!-- <td> ${user.address}</td> -->
+                                                        <td> ${user.role.name}</td>
                                                         <td>
                                                             <a class="btn btn-success"
                                                                 href="/admin/user/${user.id}">View</a>

@@ -4,10 +4,13 @@ import com.example.demo.domain.User;
 import com.example.demo.service.UploadService;
 import com.example.demo.service.UserService;
 
-import jakarta.servlet.ServletContext;
+import jakarta.validation.Valid;
 
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.FieldError;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.Optional;
@@ -18,10 +21,13 @@ import org.springframework.web.multipart.MultipartFile;
 public class UserController {
     private final UserService userService;
     private final UploadService uploadService;
+    private final PasswordEncoder passwordEncoder;
 
-    public UserController(UserService userService, UploadService uploadService) {
+    public UserController(UserService userService, UploadService uploadService,
+            PasswordEncoder passwordEncoder) {
         this.userService = userService;
         this.uploadService = uploadService;
+        this.passwordEncoder = passwordEncoder;
     }
 
     // List
@@ -49,10 +55,22 @@ public class UserController {
 
     @PostMapping(value = "/admin/user/create")
     public String CreateUserPage(Model model,
-            @ModelAttribute("newUser") User newUser,
+            @ModelAttribute("newUser") @Valid User newUser, BindingResult newUserBindingResult,
             @RequestParam("imageFile") MultipartFile file) {
+        // validation
+        List<FieldError> errors = newUserBindingResult.getFieldErrors();
+        for (FieldError error : errors) {
+            System.out.println(error.getField() + " - " + error.getDefaultMessage());
+        }
+        if (newUserBindingResult.hasErrors()) {
+            return "admin/user/create";
+        }
         String avatar = this.uploadService.handleSaveUploadFile(file, "avatar");
-        // this.userService.handelSaveUser(newUser);
+        String hashPassword = this.passwordEncoder.encode(newUser.getPassword());
+        newUser.setAvatar(avatar);
+        newUser.setPassword(hashPassword);
+        newUser.setRole(userService.getRoleByName(newUser.getRole().getName()));
+        this.userService.handelSaveUser(newUser);
         return "redirect:/admin/user";
     }
 
@@ -64,8 +82,9 @@ public class UserController {
         return "admin/user/update";
     }
 
-    @RequestMapping(value = "/admin/user/update", method = RequestMethod.POST)
+    @PostMapping(value = "/admin/user/update")
     public String GetUserDetailUpdate(Model model, @ModelAttribute("userUpdate") User userUpdate) {
+        userUpdate.setRole(userService.getRoleByName(userUpdate.getRole().getName()));
         this.userService.handelSaveUser(userUpdate);
         return "redirect:/admin/user";
     }
