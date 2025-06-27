@@ -37,6 +37,7 @@
                                 <h1 class="mt-4">Create Product</h1>
                                 <ol class="breadcrumb mb-4">
                                     <li class="breadcrumb-item"> <a href="/admin">Dashboard</a></li>
+                                    <li class="breadcrumb-item"> <a href="/admin/product">Product</a></li>
                                     <li class="breadcrumb-item active"> Create Product </li>
                                 </ol>
                                 <div class="mt-5">
@@ -65,7 +66,7 @@
                                                         class="form-control ${not empty errorPrice ?'is-invalid':''}"
                                                         path="price" />${errorPrice}
                                                 </div>
-                                                <div class="mb-3 col-12 col-md-6">
+                                                <div class="mb-3">
                                                     <c:set var="errorDetailDesc">
                                                         <form:errors path="detailDesc" cssClass="invalid-feedback" />
                                                     </c:set>
@@ -135,10 +136,11 @@
                                         </div>
                                     </div>
                                 </div>
+                            </div>
                         </main>
-                        <jsp:include page="../layout/footer.jsp" />
                     </div>
                 </div>
+                <jsp:include page="../layout/footer.jsp" />
                 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
                     crossorigin="anonymous"></script>
                 <script src="/js/scripts.js"></script>

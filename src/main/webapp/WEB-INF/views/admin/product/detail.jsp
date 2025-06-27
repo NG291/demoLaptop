@@ -14,7 +14,7 @@
             <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
         </head>
 
-        <body class="sb-nav-fixed">
+        <body class="sb-nav-fixed d-flex flex-column min-vh-100">
             <jsp:include page="../layout/header.jsp" />
             <div id="layoutSidenav">
                 <jsp:include page="../layout/sidenav.jsp" />
@@ -24,6 +24,7 @@
                             <h1 class="mt-4">Product Detail</h1>
                             <ol class="breadcrumb mb-4">
                                 <li class="breadcrumb-item"> <a href="/admin">Dashboard</a></li>
+                                <li class="breadcrumb-item"> <a href="/admin/product">Product</a></li>
                                 <li class="breadcrumb-item active"> Product Detail </li>
                             </ol>
                             <div class="mt-5">
@@ -33,12 +34,12 @@
                                             <h3> Product Detail: id=${id}</h3>
                                         </div>
                                         <hr />
-                                        <div class="card" style="width: 60%">
+                                        <div class="card" style="width: 40%">
                                             <div class="col-12 mb-3">
                                                 <!-- <img style="max-height: 250px; display:none" alt="avatarPreview"
                                                     id="avatarPreview"> -->
-                                                <img class="card-img-top" src="/images/product/${product.image}"
-                                                    alt="ImageLapTop" ,>
+                                                <img class="card-img-top" style="max-width: auto; max-height: 300px;"
+                                                    src="/images/product/${product.image}" alt="ImageLapTop">
 
                                             </div>
                                             <div class="card-header">

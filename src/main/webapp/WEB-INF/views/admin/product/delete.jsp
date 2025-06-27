@@ -25,6 +25,7 @@
                                 <h1 class="mt-4">Delete User</h1>
                                 <ol class="breadcrumb mb-4">
                                     <li class="breadcrumb-item"> <a href="/admin">Dashboard</a></li>
+                                    <li class="breadcrumb-item"> <a href="/admin/product">Product</a></li>
                                     <li class="breadcrumb-item active">Delete Product </li>
                                 </ol>
                                 <div class="container mt-5">
@@ -49,12 +50,10 @@
                                     </div>
                                 </div>
                             </div>
+                        </main>
                     </div>
                 </div>
-                </main>
                 <jsp:include page="../layout/footer.jsp" />
-                </div>
-                </div>
                 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
                     crossorigin="anonymous"></script>
                 <script src="/js/scripts.js"></script>

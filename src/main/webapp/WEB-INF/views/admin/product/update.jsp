@@ -33,7 +33,7 @@
 
             </head>
 
-            <body class="sb-nav-fixed">
+            <body class="sb-nav-fixed d-flex flex-column min-vh-100">
                 <jsp:include page="../layout/header.jsp" />
                 <div id="layoutSidenav">
                     <jsp:include page="../layout/sidenav.jsp" />
@@ -43,6 +43,7 @@
                                 <h1 class="mt-4">Update Product</h1>
                                 <ol class="breadcrumb mb-4">
                                     <li class="breadcrumb-item"> <a href="/admin">Dashboard</a></li>
+                                    <li class="breadcrumb-item"> <a href="/admin/product">Product</a></li>
                                     <li class="breadcrumb-item active"> Update Product </li>
                                 </ol>
                                 <div class="mt-5">
@@ -143,10 +144,11 @@
                                         </div>
                                     </div>
                                 </div>
+                            </div>
                         </main>
-                        <jsp:include page="../layout/footer.jsp" />
                     </div>
                 </div>
+                <jsp:include page="../layout/footer.jsp" />
                 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
                     crossorigin="anonymous"></script>
                 <script src="/js/scripts.js"></script>
