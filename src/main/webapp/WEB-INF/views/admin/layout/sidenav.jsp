@@ -28,7 +28,7 @@
                 </div>
                 <div class="sb-sidenav-footer">
                     <div class="small">Logged in as:</div>
-                    Yeu Anh Khong Doi Qua
+
                 </div>
             </nav>
         </div>

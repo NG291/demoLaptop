@@ -102,10 +102,4 @@ public class UserController {
         this.userService.deleteUserById(id);
         return "redirect:/admin/user";
     }
-
-    @GetMapping("/path")
-    public String getMethodName() {
-        return "admin/user/create";
-    }
-
 }
