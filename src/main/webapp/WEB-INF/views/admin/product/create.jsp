@@ -1,9 +1,8 @@
-<%@taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
     <!DOCTYPE html>
     <html lang="en">
     <%@page contentType="text/html" pageEncoding="UTF-8" %>
         <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-
+    <%@taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
             <head>
                 <meta charset="utf-8" />
                 <meta http-equiv="X-UA-Compatible" content="IE=edge" />

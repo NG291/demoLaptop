@@ -3,6 +3,7 @@ package com.example.demo.service;
 import java.util.List;
 import java.util.Optional;
 
+import com.example.demo.domain.dto.RegisterDTO;
 import org.springframework.stereotype.Service;
 import com.example.demo.domain.Role;
 import com.example.demo.domain.User;
@@ -41,7 +42,17 @@ public class UserService {
     }
 
     public Role getRoleByName(String name) {
-
         return this.roleRepository.findByName(name);
+    }
+
+    public User registerUserToUser(RegisterDTO registerDTO) {
+        User user = new User();
+        user.setFullName(registerDTO.getFirstName() + " " + registerDTO.getLastName());
+        user.setEmail(registerDTO.getEmail());
+        user.setPassword(registerDTO.getPassword());
+        return user;
+    }
+    public boolean checkIfEmailExists(String email) {
+        return this.userRepository.existsByEmail(email);
     }
 }
