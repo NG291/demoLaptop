@@ -1,10 +1,16 @@
 package com.example.demo.domain.dto;
-
+import com.example.demo.service.validator.FirstName;
+import com.example.demo.service.validator.LastName;
 import com.example.demo.service.validator.RegisterChecked;
+import jakarta.validation.constraints.NotBlank;
 
 @RegisterChecked
 public class RegisterDTO {
+    @FirstName
+    @NotBlank(message = "Tên là bắt buộc")
     private String firstName;
+    @LastName
+    @NotBlank(message = "Tên là bắt buộc")
     private String lastName;
     private String email;
     private String password;

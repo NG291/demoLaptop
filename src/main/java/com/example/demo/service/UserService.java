@@ -25,9 +25,6 @@ public class UserService {
         return this.userRepository.findAll();
     }
 
-    public List<User> getAllUsersByEmail(String email) {
-        return this.userRepository.findByEmail(email);
-    }
 
     public User handelSaveUser(User user) {
         return this.userRepository.save(user);
@@ -54,5 +51,8 @@ public class UserService {
     }
     public boolean checkIfEmailExists(String email) {
         return this.userRepository.existsByEmail(email);
+    }
+    public User getUserByEmail(String email) {
+        return this.userRepository.findByEmail(email);
     }
 }

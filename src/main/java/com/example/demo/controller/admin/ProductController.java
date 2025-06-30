@@ -60,7 +60,7 @@ public class ProductController {
         String imageString = this.uploadService.handleSaveUploadFile(file, "product");
         newProduct.setImage(imageString);
         this.productService.createProduct(newProduct);
-        return "redirect:/admin/product";
+        return "redirect:admin/product";
     }
 
     @GetMapping("admin/product/delete/{id}")
@@ -121,6 +121,6 @@ public class ProductController {
         }
         this.productService.createProduct(currentProduct);
 
-        return "redirect:/admin/product";
+        return "redirect:admin/product";
     }
 }

@@ -60,12 +60,17 @@ public class HomePageController {
         user.setPassword(HashPassword);
         user.setRole(userService.getRoleByName("USER"));
         this.userService.handelSaveUser(user);
-        return "redirect:/login";
+        return "redirect:login";
     }
 
     @GetMapping("/login")
     public String Login(Model model) {
         return "client/auth/login";
+    }
+
+    @PostMapping("/login")
+    public String postLogin(Model model){
+        return "redirect:";
     }
 }
 

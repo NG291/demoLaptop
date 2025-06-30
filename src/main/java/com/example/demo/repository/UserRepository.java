@@ -10,9 +10,10 @@ import com.example.demo.domain.User;
 
 @Repository
 public interface UserRepository extends JpaRepository<User, Long> {
-    List<User> findByEmail(String email);
 
     Optional<User> findById(Long id);
 
     boolean existsByEmail(String  email);
+
+    User findByEmail(String email);
 }

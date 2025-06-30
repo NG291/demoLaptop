@@ -71,7 +71,7 @@ public class UserController {
         newUser.setPassword(hashPassword);
         newUser.setRole(userService.getRoleByName(newUser.getRole().getName()));
         this.userService.handelSaveUser(newUser);
-        return "redirect:/admin/user";
+        return "redirect:admin/user";
     }
 
     // Update
@@ -86,7 +86,7 @@ public class UserController {
     public String GetUserDetailUpdate(Model model, @ModelAttribute("userUpdate") User userUpdate) {
         userUpdate.setRole(userService.getRoleByName(userUpdate.getRole().getName()));
         this.userService.handelSaveUser(userUpdate);
-        return "redirect:/admin/user";
+        return "redirect:admin/user";
     }
 
     // Delete
@@ -100,6 +100,6 @@ public class UserController {
     @RequestMapping(value = "/admin/user/delete", method = RequestMethod.POST)
     public String DeleteInfoUser(Model model, @RequestParam Long id) {
         this.userService.deleteUserById(id);
-        return "redirect:/admin/user";
+        return "redirect:admin/user";
     }
 }
